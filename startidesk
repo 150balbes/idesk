@@ -1,0 +1,65 @@
+#!/bin/sh
+# Install user settings for Idesk Icon Manager and start it
+# Author: Anton V. Denisov <avd@altlinux.ru>
+# Changed by Ilya Evseev <evseev@altlinux.ru> for conforming idesk 0.7.0
+
+USERDIR=$HOME/.idesktop
+
+if [ ! -f ~/.ideskrc ]; then
+cat > $HOME/.ideskrc << 'EOF'
+table Config
+  FontName: helvetica
+  FontSize: 9
+  FontColor: #FFFFFA
+  FontNameTip: helvetica
+  FontSizeTip: 9
+  ForeColorTip: #0000FF
+  BackColorTip: #FFFFFF
+  PaddingX: 10
+  PaddingY: 10
+  Transparency: 75
+  HighContrast: true
+  Locked: false
+  Shadow: false
+  ShadowColor: #0006FA
+  ShadowX: 2
+  ShadowY: 2
+  SnapShadow: true
+  IconSnap: true
+  SnapWidth: 10
+  SnapHeight: 10
+  SnapOrigin: BottomRight
+  SnapShadowTrans: 300
+  CaptionOnHover: false
+  CaptionTipOnHover: true
+  CaptionTipPlacement: right
+  CaptionPlacement: bottom
+  Bold: false
+end
+
+table Actions
+  Lock: control right doubleClk
+  Reload: middle doubleClk
+  Drag: left hold
+  EndDrag: left singleClk
+  Execute[0]: left doubleClk
+  Execute[1]: right doubleClk
+end
+EOF
+
+fi
+
+if [ ! -d $USERDIR ]; then
+	cp -a /etc/idesk.d/icon $HOME/.idesktop
+fi
+
+ExecIfExecutable()
+{ 
+  local f="$1"
+  shift
+  [ -x "$f" ] && exec "$f" "$@"
+}
+			
+ExecIfExecutable /usr/bin/idesk "$@"
+
+## EOF ##
