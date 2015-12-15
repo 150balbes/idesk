@@ -22,6 +22,9 @@
  * (See the included file COPYING / BSD )
  */
 
+#include <sys/types.h>
+#include <sys/stat.h>
+
 #include "DesktopConfig.h"
 #include "Util.h"
 

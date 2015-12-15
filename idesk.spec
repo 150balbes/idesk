@@ -1,6 +1,6 @@
 Name: idesk
 Version: 0.7.5
-Release: alt12
+Release: alt12.1
 Serial: 1
 
 Summary: Desktop icon manager with support for PNG/SVG icons and antialiased text
@@ -13,7 +13,6 @@ Source1: %name.desktop
 Source2: start%name
 Source3: %name.d.tar
 
-Patch: idesk-0.7.5-alt-glibc-2.16.patch
 Packager: Oleg Ivanov <Leo-sp150@yandex.ru>
 
 Requires: xterm menu-icons-default >= 0.1-alt2
@@ -44,7 +43,6 @@ when startidesk helper is running first time.
 
 %prep
 %setup
-%patch -p2
 
 %build
 autoreconf -fisv
@@ -66,7 +64,7 @@ tar xf %SOURCE3 -C %buildroot%_sysconfdir/
 %_sysconfdir/%name.d/*
 
 %changelog
-* Wed Oct 29 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1:0.7.5-alt12
+* Wed Oct 29 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1:0.7.5-alt12.1
 - edit startidesk
 - add /etc/idesk.d/icon
 
