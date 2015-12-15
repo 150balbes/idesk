@@ -12,6 +12,7 @@ Source0: http://osdl.dl.sourceforge.net/sourceforge/%name/%name-%version.tar.bz2
 Source1: %name.desktop
 Source2: start%name
 Source3: %name.d.tar
+Source4: %name.png
 
 Packager: Oleg Ivanov <Leo-sp150@yandex.ru>
 
@@ -54,6 +55,7 @@ autoreconf -fisv
 install -pD -m755 src/%name %buildroot%_x11bindir/%name
 install -pD -m644 %SOURCE1 %buildroot%_desktopdir/%name.desktop
 install -pD -m755 %SOURCE2 %buildroot%_x11bindir/start%name
+install -pD -m644 %SOURCE4 %buildroot%_niconsdir/%name.png
 mkdir -p %buildroot%_sysconfdir/%name.d
 tar xf %SOURCE3 -C %buildroot%_sysconfdir/
 
@@ -62,9 +64,13 @@ tar xf %SOURCE3 -C %buildroot%_sysconfdir/
 %_x11bindir/*
 %_desktopdir/*
 %_sysconfdir/%name.d/*
+%_niconsdir/*
 
 %changelog
-* Wed Oct 29 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1:0.7.5-alt12.1
+* Wed Dec 15 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1:0.7.5-alt12.1
+- add idesk.png
+
+* Wed Oct 29 2015 Oleg Ivanov <Leo-sp150@yandex.ru> 1:0.7.5-alt12
 - edit startidesk
 - add /etc/idesk.d/icon
 
