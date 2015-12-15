@@ -34,26 +34,44 @@ idesk.$(OBJEXT): defaults.h
 
 bin_PROGRAMS= idesk
 
-idesk_SOURCES =  XDesktopContainer.h  XDesktopContainer.cpp \
-		 XIcon.h XIcon.cpp \
-                 XImlib2Image.h XImlib2Image.cpp \
-                 Database.h Database.cpp \
-		 DesktopConfig.h DesktopConfig.cpp \
- 		 DesktopIconConfig.h DesktopIconConfig.cpp \
-		 Misc.h Misc.cpp \
-		 Util.h \
-		 XImlib2Shadow.h XImlib2Shadow.cpp \
-		 XIconWithShadow.h XIconWithShadow.cpp \
-                 XImlib2Background.h XImlib2Background.cpp \
-                 XImlib2ToolTip.h XImlib2ToolTip.cpp \
-		 AbstractClasses.h \
- 		 Action.h Action.cpp \
-		 ActionConfig.h ActionConfig.cpp \
-		 App.h App.cpp \
-		 XImlib2Caption.h XImlib2Caption.cpp \
-		 Timer.h Timer.cpp \
-		 Main.h Main.cpp \
-		 cursors.h
+idesk_SOURCES = \
+	XDesktopContainer.h \
+	XDesktopContainer.cpp \
+	XIcon.h \
+	XIcon.cpp \
+	XImlib2Image.h \
+	XImlib2Image.cpp \
+	Database.h \
+	Database.cpp \
+	DesktopConfig.h \
+	DesktopConfig.cpp \
+	DesktopIconConfig.h \
+	DesktopIconConfig.cpp \
+	Misc.h \
+	Misc.cpp \
+	Util.h \
+	XImlib2Shadow.h \
+	XImlib2Shadow.cpp \
+	XIconWithShadow.h \
+	XIconWithShadow.cpp \
+	XImlib2Background.h \
+	XImlib2Background.cpp \
+	XImlib2ToolTip.h \
+	XImlib2ToolTip.cpp \
+	AbstractClasses.h \
+	Action.h \
+	Action.cpp \
+	ActionConfig.h \
+	ActionConfig.cpp \
+	App.h \
+	App.cpp \
+	XImlib2Caption.h \
+	XImlib2Caption.cpp \
+	Timer.h \
+	Timer.cpp \
+	Main.h \
+	Main.cpp \
+	cursors.h
 
 uninstall-local:
 	for i in $(bin_PROGRAMS); do \
