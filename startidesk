@@ -35,6 +35,17 @@ table Config
   CaptionTipPlacement: right
   CaptionPlacement: bottom
   Bold: false
+  ToolTip.FontSize: 11
+  ToolTip.FontName: gothic
+  ToolTip.ForeColor: #0000FF
+  ToolTip.BackColor: #FFFFFF
+  ToolTip.CaptionOnHover: true
+  ToolTip.CaptionPlacement: Right
+  Background.Delay: 10
+  Background.Source: /usr/share/wallpapers
+  Background.File: /usr/share/wallpapers/0001.jpg
+  Background.Mode: Scale
+  Background.Color: #C2CCFF
 end
 
 table Actions
