@@ -41,7 +41,7 @@ table Config
   ToolTip.BackColor: #FFFFFF
   ToolTip.CaptionOnHover: true
   ToolTip.CaptionPlacement: Right
-  Background.Delay: 10
+  Background.Delay: 1400
   Background.Source: /usr/share/wallpapers
   Background.File: /usr/share/wallpapers/0001.jpg
   Background.Mode: Scale
