@@ -1,6 +1,6 @@
 Name: idesk
 Version: 0.7.5
-Release: alt13
+Release: alt14
 Serial: 1
 
 Summary: Desktop icon manager with support for PNG/SVG icons and antialiased text
@@ -67,6 +67,9 @@ tar xf %SOURCE3 -C %buildroot%_sysconfdir/
 %_niconsdir/*
 
 %changelog
+* Wed Feb 03 2016 Oleg Ivanov <Leo-sp150@yandex.ru> 1:0.7.5-alt14
+- add reload icons SIGUSR1
+
 * Wed Jan 29 2016 Oleg Ivanov <Leo-sp150@yandex.ru> 1:0.7.5-alt13
 - edit default settings
 

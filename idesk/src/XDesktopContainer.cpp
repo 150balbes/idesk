@@ -34,6 +34,7 @@
 #endif /* HAVE_STARTUP_NOTIFICATION  */
 
 XDesktopContainer *xcontainer;
+extern sig_atomic_t RestartIdesk;
 
 XDesktopContainer::XDesktopContainer(AbstractApp * a) : DesktopContainer(a)
 {
@@ -286,6 +287,10 @@ void XDesktopContainer::eventLoop()
     
     for(;;)
     {
+       if (RestartIdesk == 1){
+   			RestartIdesk = 0;
+			reloadState();
+        }
         if( !XPending( display ) && timer){
 		if(!bg->IsOneShot()){
 			timer->Update();
@@ -582,8 +587,10 @@ void XDesktopContainer::saveIcon(AbstractIcon * xIcon)
 
 void XDesktopContainer::reloadState()
 {
-    //TODO -- Reload all of the icons internally instead of rebooting whole
-    //        program. Not way too important though.
+			saveState();
+			configure();
+			loadIcons();
+			arrangeIcons();
 }
 
 void XDesktopContainer::runCommand(const string & command)

@@ -30,10 +30,7 @@
 #include "defaults.h"
 #include <iostream>
 #include "AbstractClasses.h"
-
 #include "XDesktopContainer.h"
-//circular including
-//class XDesktopContainer;  // .h file is below
 
 class Application : public AbstractApp
 {    
@@ -45,7 +42,7 @@ class Application : public AbstractApp
         Application(int arg, char ** args);
         virtual ~Application();
         void startIdesk();
-        void restartIdesk(); 
+        void restartIdesk();
 };
 
 

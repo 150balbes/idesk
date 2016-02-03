@@ -24,11 +24,13 @@
 
 #include "App.h"
 #include <signal.h>
-/*#include <sys/wait.h>*/
+
+volatile sig_atomic_t RestartIdesk;
 
 Application::Application(int arg, char ** args) : AbstractApp(arg, args)
 {
-
+	RestartIdesk=0;
+	
     if (!processArguments())
         _exit(1);
 
@@ -67,7 +69,11 @@ void signalhandler(int sig){
 	  int status;
 	  waitpid(-1, &status, WNOHANG|WUNTRACED);
 	}else{
-	  _exit(1); 	
+		if(sig == SIGUSR1){
+			RestartIdesk=1;
+		}else{ 
+			_exit(1); 	
+		}
 	}
 }
 
@@ -84,8 +90,7 @@ void Application::startIdesk()
     signal(SIGCHLD, signalhandler);
     
     container = new XDesktopContainer(this);
-    if (!container)
-                cout << "container is NULL\n";
+    if (!container) cout << "container is NULL\n";
     container->run();
 }
 
@@ -94,11 +99,5 @@ void Application::restartIdesk()
     container->saveState();
     cout << "restarting idesk\n";
     delete container;
-    
-    
-    //startIdesk();
-    //container->create();
-    //container->run();
-
     execvp( argv[0], argv );
 }
