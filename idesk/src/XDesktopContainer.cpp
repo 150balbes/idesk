@@ -587,10 +587,11 @@ void XDesktopContainer::saveIcon(AbstractIcon * xIcon)
 
 void XDesktopContainer::reloadState()
 {
-			saveState();
-			configure();
-			loadIcons();
-			arrangeIcons();
+			app->restartIdesk();
+//			saveState();
+//			configure();
+//			loadIcons();
+//			arrangeIcons();
 }
 
 void XDesktopContainer::runCommand(const string & command)
