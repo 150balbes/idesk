@@ -287,10 +287,6 @@ void XDesktopContainer::eventLoop()
     
     for(;;)
     {
-       if (RestartIdesk == 1){
-   			RestartIdesk = 0;
-			reloadState();
-        }
         if( !XPending( display ) && timer){
 		if(!bg->IsOneShot()){
 			timer->Update();
@@ -307,6 +303,10 @@ void XDesktopContainer::eventLoop()
           event = ev;
           parseEvent();
 	}
+	     if (RestartIdesk == 1){
+   			RestartIdesk = 0;
+			reloadState();
+        }
     }
     
 #ifdef HAVE_STARTUP_NOTIFICATION

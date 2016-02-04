@@ -24,6 +24,8 @@
 
 #include "App.h"
 
+volatile sig_atomic_t RestartIdesk;
+
 int main(int argc, char ** argv)
 {
     Application * app = new Application(argc, argv);

@@ -25,7 +25,7 @@
 #include "App.h"
 #include <signal.h>
 
-volatile sig_atomic_t RestartIdesk;
+extern sig_atomic_t RestartIdesk;
 
 Application::Application(int arg, char ** args) : AbstractApp(arg, args)
 {
@@ -69,12 +69,14 @@ void signalhandler(int sig){
 	  int status;
 	  waitpid(-1, &status, WNOHANG|WUNTRACED);
 	}else{
+		_exit(1); 	
+	}
+}
+
+void signalhandlerRestart(int sig){
 		if(sig == SIGUSR1){
 			RestartIdesk=1;
-		}else{ 
-			_exit(1); 	
 		}
-	}
 }
 
 void Application::startIdesk()
@@ -84,7 +86,7 @@ void Application::startIdesk()
     signal(SIGFPE, signalhandler);
     signal(SIGTERM, signalhandler);
     signal(SIGINT, signalhandler);
-    signal(SIGUSR1, signalhandler);
+    signal(SIGUSR1, signalhandlerRestart);
     signal(SIGUSR2, signalhandler);
     signal(SIGHUP, signalhandler);
     signal(SIGCHLD, signalhandler);
