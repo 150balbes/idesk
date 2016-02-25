@@ -27,6 +27,8 @@
 #include "XImlib2Image.h"
 #include "XIcon.h"
 
+extern string str_icon;
+
 XImlib2Image::XImlib2Image(AbstractContainer * c, AbstractIcon * iParent,
                          AbstractConfig * con, AbstractIconConfig * iConfig)
                             : AbstractImage(c, iParent, con, iConfig),
@@ -81,8 +83,10 @@ void XImlib2Image::createPicture()
 	
 	image = imlib_load_image(dIconConfig->getPictureFilename().c_str());
 
-	if (image)
+	if (!image)
 	{
+		image = imlib_load_image(str_icon.c_str());
+	}
 		imlib_context_set_image(image);
 
 		orgWidth = imlib_image_get_width();
@@ -97,18 +101,17 @@ void XImlib2Image::createPicture()
 				orgWidth, orgHeight, width, height);
 
 		imlib_free_image();
-
 		image = tempImg;
-        
 		hasAlpha = true; //TODO add checks here
-	}    
-	else
-	{
-		cout << "Can't load: " << dIconConfig->getPictureFilename()
-				<< " bailing -- "
-				<< dIconConfig->getCaption() << endl
-				<< "Check to see if the image and path to image is valid\n";
-	}
+//	}    
+//	else
+//	{
+//		cout << "Can't load: " << dIconConfig->getPictureFilename()
+//				<< " bailing -- "
+//				<< dIconConfig->getCaption() << endl
+//				<< "Check to see if the image and path to image is valid\n";
+
+//	}
 	
 }
 

@@ -49,11 +49,11 @@ class XIcon : public AbstractIcon
         bool setImage(AbstractImage *);
         bool setCaption(AbstractCaption *);
 
-	void mouseOverEffect();
-	void mouseOffEffect();
+		void mouseOverEffect();
+		void mouseOffEffect();
 
         virtual void draw();
-	virtual void redraw();
+		virtual void redraw();
 	
         void updateText();
         void save();
@@ -62,7 +62,7 @@ class XIcon : public AbstractIcon
 
         Window * getImageWindow();
         Window * getCaptionWindow();
-	Window   getToolTipWindow();
+		Window   getToolTipWindow();
 	
         void moveImageWindow();
         void mapImageWindow();

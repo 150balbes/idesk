@@ -27,6 +27,8 @@
 #include "XImlib2Shadow.h"
 #include "XImlib2Image.h"
 
+extern string str_icon;
+
 XIcon::XIcon(AbstractContainer * cont, AbstractConfig * con,
               AbstractIconConfig * iConfig) : AbstractIcon(cont, con, iConfig)
 {
@@ -61,20 +63,25 @@ XIcon::~XIcon()
 
 bool XIcon::createIcon()
 {
-	ifstream filein( iconConfig->getPictureFilename().c_str());
+	ifstream filein(iconConfig->getPictureFilename().c_str());
 	if (filein.fail()){
-		cout << "Can't load: " << iconConfig->getPictureFilename()
+		ifstream filein(str_icon.c_str());
+	}
+/*	if (filein.fail()){
+			cout << "Can't load: " << iconConfig->getPictureFilename() << endl
+				<< " Can't default icon: " 
+				<< str_icon  << endl
 				<< " bailing -- "
 				<< iconConfig->getCaption() << endl
 				<< "Check to see if the image and path to image is valid\n"; 
-		return false;
+			return false;
 	}	
-	
+*/	
 	XImlib2Image * xImage = dynamic_cast<XImlib2Image *>(image);
 	
 	xImage->configure();
 	xImage->createWindow();
-        xImage->createToolTip();
+    xImage->createToolTip();
 	xImage->setupLayer();
 	xImage->initalize();
 	xImage->lowerWindow();	
@@ -87,7 +94,7 @@ bool XIcon::createIcon()
 		caption = new XImlib2Caption(container, this, config, iconConfig);
 		XImlib2Caption * xCaption = dynamic_cast<XImlib2Caption *>(caption);
 		xCaption->createWindow();
-                xCaption->renderFont2Imlib();
+        xCaption->renderFont2Imlib();
 		xCaption->lowerWindow();
 	}
 	return true;
