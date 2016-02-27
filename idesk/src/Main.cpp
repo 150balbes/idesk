@@ -25,7 +25,7 @@
 #include "App.h"
 
 volatile sig_atomic_t RestartIdesk;
-volatile string str_icon="/usr/share/icons/hicolor/32x32/apps/idesk.png";
+string str_icon="/usr/share/icons/hicolor/32x32/apps/idesk.png";
 
 int main(int argc, char ** argv)
 {
