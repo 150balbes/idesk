@@ -243,9 +243,20 @@ void DesktopConfig::loadIcons()
     
     if (fileCount == -1)
     {
+		string directory1(getenv("HOME"));
+		directory1 += "/.idesktop";
+		int mkdir(directory1.c_str(), 0644);
+		
+    }i
+
+    fileCount = scandir(directory.c_str(), &files, 0, alphasort);
+    
+    if (fileCount == -1)
+    {
         cout << "Error: you have to create the .idesktop dir on your HOME!!\n";
         _exit (1);
     }
+
 
     for(int i = 0; i < fileCount; i++)
     {

@@ -1,5 +1,3 @@
 copy: *.desktop
 copy: *.png
 tar.bz2: idesk
-copy: startidesk
-tar: idesk.d name=idesk.d

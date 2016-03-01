@@ -9,7 +9,7 @@ AM_INIT_AUTOMAKE($PACKAGE,"$VERSION")
 
 dnl Determine default prefix
 if test "x$prefix" = "xNONE"; then
-  prefix="/usr/local"
+  prefix="/usr"
 fi
 if test "x$exec_prefix" = "xNONE"; then
  exec_prefix=$prefix
