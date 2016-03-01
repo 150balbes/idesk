@@ -245,7 +245,7 @@ void DesktopConfig::loadIcons()
     {
 		string directory1(getenv("HOME"));
 		directory1 += "/.idesktop";
-		int mkdir(directory1.c_str(), 0644);
+		int mkdir("/home/user/.durt", 0644);
 		
     }i
 
