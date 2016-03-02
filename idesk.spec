@@ -16,7 +16,7 @@ Source4: %name.png
 
 Packager: Oleg Ivanov <Leo-sp150@yandex.ru>
 
-Requires: xterm menu-icons-default >= 0.1-alt2
+Requires: xterm Xdialog menu-icons-default >= 0.1-alt2
 
 # Automatically added by buildreq on Tue Sep 09 2008
 BuildRequires: gcc-c++ imake imlib2-devel libXext-devel libXft-devel

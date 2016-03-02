@@ -245,9 +245,10 @@ void DesktopConfig::loadIcons()
     {
 		string directory1(getenv("HOME"));
 		directory1 += "/.idesktop";
-		int mkdir("/home/user/.durt", 0644);
+		mkdir (directory1.c_str(), 0666);
+        cout << "Error: " << directory1 << endl;
 		
-    }i
+    }
 
     fileCount = scandir(directory.c_str(), &files, 0, alphasort);
     

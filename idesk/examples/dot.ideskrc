@@ -1,7 +1,7 @@
 table Config
   FontName: gothic
   FontSize: 11
-  FontColor: #37CFA6
+  FontColor: #FFFFFF
   ToolTip.FontSize: 11
   ToolTip.FontName: gothic
   ToolTip.ForeColor: #0000FF
@@ -27,9 +27,9 @@ table Config
   FillStyle: fillinvert
   Background.Delay: 0
   Background.Source: None
-  Background.File: None
-  Background.Mode: Center
-  Background.Color: #C2CCFF
+  Background.File: /usr/share/idesk/background.png
+  Background.Mode: Scale
+  Background.Color: #4F4FA7
 end
 
 table Actions
