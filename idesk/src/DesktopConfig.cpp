@@ -245,7 +245,7 @@ void DesktopConfig::loadIcons()
     {
 		string directory1(getenv("HOME"));
 		directory1 += "/.idesktop";
-		mkdir (directory1.c_str(), 0666);
+		mkdir (directory1.c_str(), 0777);
         cout << "Error: " << directory1 << endl;
 		
     }
