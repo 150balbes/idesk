@@ -1,7 +1,7 @@
 Name: idesk
 Version: 0.7.6
 Release: alt1
-###Serial: 1
+Serial: 1
 
 Summary: Desktop icon manager with support for PNG/SVG icons and antialiased text
 License: BSD
