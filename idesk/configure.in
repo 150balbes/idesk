@@ -1,6 +1,6 @@
 dnl Initialize autoconf and automake
 AC_INIT(src/Main.cpp)
-VERSION=0.7.5
+VERSION=0.7.6
 PACKAGE=idesk
 dnl Output files
 AM_CONFIG_HEADER(config.h)

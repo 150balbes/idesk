@@ -1,7 +1,7 @@
 Name: idesk
-Version: 0.7.5
-Release: alt18
-Serial: 1
+Version: 0.7.6
+Release: alt1
+###Serial: 1
 
 Summary: Desktop icon manager with support for PNG/SVG icons and antialiased text
 License: BSD
@@ -10,8 +10,6 @@ Group: Graphical desktop/Icewm
 Url: http://idesk.sourceforge.net
 Source0: http://osdl.dl.sourceforge.net/sourceforge/%name/%name-%version.tar.bz2
 Source1: %name.desktop
-###Source2: start%name
-###Source3: %name.d.tar
 Source4: %name.png
 
 Packager: Oleg Ivanov <Leo-sp150@yandex.ru>
@@ -54,10 +52,7 @@ autoreconf -fisv
 %install
 install -pD -m755 src/%name %buildroot%_x11bindir/%name
 install -pD -m644 %SOURCE1 %buildroot%_desktopdir/%name.desktop
-###install -pD -m755 %SOURCE2 %buildroot%_x11bindir/start%name
 install -pD -m644 %SOURCE4 %buildroot%_niconsdir/%name.png
-###mkdir -p %buildroot%_sysconfdir/%name.d
-###tar xf %SOURCE3 -C %buildroot%_sysconfdir/
 
 mkdir -p %buildroot%_datadir/%name
 cp -a examples/* %buildroot%_datadir/%name
@@ -67,12 +62,14 @@ cp -a examples/* %buildroot%_datadir/%name
 %_datadir/%name/*
 %_x11bindir/*
 %_desktopdir/*
-###%_sysconfdir/%name.d/*
 %_niconsdir/*
 
 %doc AUTHORS COPYING ChangeLog NEWS README TODO
 
 %changelog
+* Wed Mar 02 2016 Oleg Ivanov <Leo-sp150@yandex.ru> 0.7.6-alt1
+- new ver
+
 * Wed Mar 01 2016 Oleg Ivanov <Leo-sp150@yandex.ru> 1:0.7.5-alt18
 - new ver
 

@@ -98,7 +98,7 @@ void Application::startIdesk()
 
 void Application::restartIdesk()
 {
-    container->saveState();
+//    container->saveState();
     cout << "restarting idesk\n";
     delete container;
     execvp( argv[0], argv );
